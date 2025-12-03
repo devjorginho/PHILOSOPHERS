@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_simulation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jde-carv <jde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:30:31 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/11/29 20:06:21 by devjorginho      ###   ########.fr       */
+/*   Updated: 2025/12/03 18:26:55 by jde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
