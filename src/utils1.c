@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 17:44:19 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/11/29 18:44:07 by devjorginho      ###   ########.fr       */
+/*   Updated: 2025/12/04 20:43:29 by devjorginho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ long	ft_atol(const char *s)
 	return (n * sign);
 }
 
-
 int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
     size_t i;
@@ -55,6 +54,15 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
         return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 
     return 0;
+}
+
+void    ft_bzero(void *s, size_t n)
+{
+    unsigned char *ptr;
+
+    ptr = (unsigned char *)s;
+    while (n--)
+        *ptr++ = 0;
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)

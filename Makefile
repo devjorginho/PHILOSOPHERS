@@ -3,7 +3,16 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
        src/check_arguments.c \
-       src/utils.c
+       src/clean_simulation.c \
+       src/init_mutexes.c \
+       src/init_philos.c \
+       src/init_simulation.c \
+       src/print_actions.c \
+       src/routine_management.c \
+       src/thread_management.c \
+       src/utils1.c \
+       src/utils2.c
+	   
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
