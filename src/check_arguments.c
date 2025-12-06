@@ -14,7 +14,7 @@
 
 static int	is_number(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!s || !*s)
@@ -32,8 +32,8 @@ static int	is_number(const char *s)
 
 static int	is_positive(const char *s)
 {
-	long int res;
-	int i;
+	long int	res;
+	int			i;
 
 	i = 0;
 	if (!s || !*s)
@@ -68,7 +68,7 @@ static int	check_arguments(const char *s)
 
 int	validate_arguments(int ac, char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (ac < 5 || ac > 6)
@@ -86,4 +86,3 @@ int	validate_arguments(int ac, char **av)
 	}
 	return (1);
 }
-

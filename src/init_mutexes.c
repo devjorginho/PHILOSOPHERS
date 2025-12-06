@@ -12,47 +12,47 @@
 
 #include "../headers/philo.h"
 
-static int alloc_forks(t_simulation *sim, int n_forks)
+static int	alloc_forks(t_simulation *sim, int n_forks)
 {
-    sim->forks = ft_calloc(n_forks, sizeof(pthread_mutex_t));
-    if (!sim->forks)
-        return (0);
-    return (1);
+	sim->forks = ft_calloc(n_forks, sizeof(pthread_mutex_t));
+	if (!sim->forks)
+		return (0);
+	return (1);
 }
 
-static void destroy_forks(t_simulation *sim, int n_initialized)
+static void	destroy_forks(t_simulation *sim, int n_initialized)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!sim || !sim->forks)
-        return;
-    while (i < n_initialized)
-    {
-        pthread_mutex_destroy(&sim->forks[i]);
-        i++;
-    }
-    free(sim->forks);
-    sim->forks = NULL;
+	i = 0;
+	if (!sim || !sim->forks)
+		return ;
+	while (i < n_initialized)
+	{
+		pthread_mutex_destroy(&sim->forks[i]);
+		i++;
+	}
+	free(sim->forks);
+	sim->forks = NULL;
 }
 
-static int init_forks(t_simulation *sim)
+static int	init_forks(t_simulation *sim)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!sim || !sim->forks)
-        return (0);
-    while (i < sim->nbr_philo)
-    {
-        if (pthread_mutex_init(&sim->forks[i], NULL) != 0)
+	i = 0;
+	if (!sim || !sim->forks)
+		return (0);
+	while (i < sim->nbr_philo)
+	{
+		if (pthread_mutex_init(&sim->forks[i], NULL) != 0)
 		{
 			destroy_forks(sim, i);
-            return (0);
+			return (0);
 		}
-        i++;
-    }
-    return (1);
+		i++;
+	}
+	return (1);
 }
 
 static int	init_general_mutexes(t_simulation *sim)
@@ -66,14 +66,14 @@ static int	init_general_mutexes(t_simulation *sim)
 
 int	init_mutexes(t_simulation *sim)
 {
-    if (!alloc_forks(sim, sim->nbr_philo))
-        return (0);
-    if (!init_forks(sim))
-        return (0);
-    if (!init_general_mutexes(sim))
-    {
-        destroy_forks(sim, sim->nbr_philo);
-        return (0);
-    }
-    return (1);
+	if (!alloc_forks(sim, sim->nbr_philo))
+		return (0);
+	if (!init_forks(sim))
+		return (0);
+	if (!init_general_mutexes(sim))
+	{
+		destroy_forks(sim, sim->nbr_philo);
+		return (0);
+	}
+	return (1);
 }

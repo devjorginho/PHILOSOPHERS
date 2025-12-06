@@ -10,6 +10,7 @@ SRCS = main.c \
        src/print_actions.c \
        src/routine_management.c \
        src/thread_management.c \
+       src/simulation_status.c \
        src/utils1.c \
        src/utils2.c
 	   
