@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_forks.c                                       :+:      :+:    :+:   */
+/*   init_mutexes.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 19:31:51 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/11/29 20:04:18 by devjorginho      ###   ########.fr       */
+/*   Updated: 2025/12/06 10:23:13 by devjorginho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static void destroy_forks(t_simulation *sim, int n_initialized)
 {
     int i;
 
+    i = 0;
     if (!sim || !sim->forks)
         return;
-    i = 0;
     while (i < n_initialized)
     {
         pthread_mutex_destroy(&sim->forks[i]);
@@ -40,9 +40,9 @@ static int init_forks(t_simulation *sim)
 {
     int i;
 
+    i = 0;
     if (!sim || !sim->forks)
         return (0);
-    i = 0;
     while (i < sim->nbr_philo)
     {
         if (pthread_mutex_init(&sim->forks[i], NULL) != 0)

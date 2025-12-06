@@ -6,7 +6,7 @@
 /*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:00:32 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/12/04 21:11:16 by devjorginho      ###   ########.fr       */
+/*   Updated: 2025/12/06 10:40:33 by devjorginho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int is_one_philo(t_simulation *sim)
     sim->start_simulation = get_actual_time_ms(); 
     printf("0 1 has taken a fork\n");
     ft_usleep(sim->time_to_die);
-    printf("%llu 1 died\n", (long long)sim->time_to_die);
+    printf("%lld 1 died\n", (long long)sim->time_to_die);
     sim->end_simulation = 1; 
     return (1);
 }

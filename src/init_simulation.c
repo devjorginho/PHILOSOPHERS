@@ -6,10 +6,9 @@
 /*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 21:07:13 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/12/04 21:07:44 by devjorginho      ###   ########.fr       */
+/*   Updated: 2025/12/06 11:45:05 by devjorginho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../headers/philo.h"
 

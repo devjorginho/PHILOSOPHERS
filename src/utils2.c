@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: devjorginho <devjorginho@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/04 20:46:50 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/12/04 20:47:51 by devjorginho      ###   ########.fr       */
+/*   Created: 2025/12/06 11:44:29 by devjorginho       #+#    #+#             */
+/*   Updated: 2025/12/06 11:44:41 by devjorginho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ long long get_simulation_time_ms(t_simulation *sim)
 void ft_usleep(long long time_ms)
 {
     long long start_time;
+    long long target_time;
 
     start_time = get_actual_time_ms();
-    while (get_actual_time_ms() < start_time + time_ms)
-        usleep(500);
+    target_time = start_time + time_ms;
+    while (get_actual_time_ms() < target_time)
+        usleep(100); 
 }
