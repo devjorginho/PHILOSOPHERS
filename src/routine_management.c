@@ -6,7 +6,7 @@
 /*   By: jde-carv <jde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 11:54:13 by devjorginho       #+#    #+#             */
-/*   Updated: 2025/12/06 20:06:19 by jde-carv         ###   ########.fr       */
+/*   Updated: 2025/12/07 08:00:28 by jde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,16 @@ void	*philo_routine(void *arg)
 	return (NULL);
 }
 
+static void	all_philo_eat(t_simulation *sim)
+{
+	pthread_mutex_lock(&sim->print_lock);
+	printf("All philosophers have eaten the maximum number of meals..\n");
+	pthread_mutex_unlock(&sim->print_lock);
+	pthread_mutex_lock(&sim->simulation_lock);
+	sim->end_simulation = 1;
+	pthread_mutex_unlock(&sim->simulation_lock);
+}
+
 static int	supervisor_check_state(t_simulation *sim)
 {
 	int	all_meals_done;
@@ -80,9 +90,7 @@ static int	supervisor_check_state(t_simulation *sim)
 	}
 	if (sim->limit_meals != -1 && all_meals_done)
 	{
-		pthread_mutex_lock(&sim->simulation_lock);
-		sim->end_simulation = 1;
-		pthread_mutex_unlock(&sim->simulation_lock);
+		all_philo_eat(sim);
 		return (1);
 	}
 	return (0);
